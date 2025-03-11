@@ -1,9 +1,7 @@
 ---
 title: "Aaron Judge Playoff Performance 2024"
 subtitle: "By Kiran Pathy"
-output:
-html_notebook: default
-pdf_document: default
+output: pdf_document
 ---
 
 # **Project Repository**
