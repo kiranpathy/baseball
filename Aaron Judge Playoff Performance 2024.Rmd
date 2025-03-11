@@ -6,6 +6,12 @@ html_notebook: default
 pdf_document: default
 ---
 
+# **Project Repository**
+
+Find source code and data at this link: <https://github.com/kiranpathy/judge-playoffs-2024>
+
+# **Introduction**
+
 In this project, I examine Aaron Judge's widely publicized and uncharacteristic postseason hitting deficiency. I am interested in utilizing various visualizations to consider the approach of pitchers in the postseason and why they were successful against him. I will utilize several visuals, from heatmaps to strikezone plots, as well as some brief data calculations to demonstrates any interesting findings.
 
 ```{r, message=FALSE, warning=FALSE, echo=FALSE}
