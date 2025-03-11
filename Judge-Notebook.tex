@@ -1,0 +1,505 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Aaron Judge Playoff Performance 2024},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Aaron Judge Playoff Performance 2024}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+In this project, I examine Aaron Judge's widely publicized and
+uncharacteristic postseason hitting deficiency. I am interested in
+utilizing various visualizations to consider the approach of pitchers in
+the postseason and why they were successful against him. I will utilize
+several visuals, from heatmaps to strikezone plots, as well as some
+brief data calculations to demonstrates any interesting findings.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#libraries and set\_wd}
+\FunctionTok{setwd}\NormalTok{(}\StringTok{"\textasciitilde{}/Desktop/Baseball Coding/Aaron Judge Playoffs 24"}\NormalTok{)}
+
+\FunctionTok{library}\NormalTok{(plyr)}
+\FunctionTok{library}\NormalTok{(dplyr)}
+\FunctionTok{library}\NormalTok{(devtools)}
+\FunctionTok{library}\NormalTok{(DT)}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(ggrepel)}
+\FunctionTok{library}\NormalTok{(ggthemes)}
+\FunctionTok{library}\NormalTok{(gridExtra)}
+\FunctionTok{library}\NormalTok{(janitor)}
+\FunctionTok{library}\NormalTok{(plotly)}
+\FunctionTok{library}\NormalTok{(stringr)}
+\FunctionTok{library}\NormalTok{(tidyr)}
+\FunctionTok{library}\NormalTok{(tidyselect)}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\FunctionTok{library}\NormalTok{(data.table)}
+\FunctionTok{library}\NormalTok{(reactable)}
+\FunctionTok{library}\NormalTok{(lubridate)}
+\FunctionTok{library}\NormalTok{(ggpubr)}
+\FunctionTok{library}\NormalTok{(paletteer)}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Plots and Data}\label{plots-and-data}
+
+The first thing I want to examine is where the pitches that Judge faced
+were located. This can provide insights into understanding pitch
+locations that he had difficulty with, especially noting the frequency
+with which each pitch was thrown to him. I will do this with heatmaps of
+each pitch he faced, including the frequency with which he saw each
+pitch.
+
+\begin{verbatim}
+## Warning: The `size` argument of `element_rect()` is deprecated as of ggplot2 3.4.0.
+## i Please use the `linewidth` argument instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Removed 2 rows containing non-finite outside the scale range
+## (`stat_density2d_filled()`).
+## Removed 2 rows containing non-finite outside the scale range
+## (`stat_density2d_filled()`).
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Removed 1 row containing non-finite outside the scale range
+## (`stat_density2d_filled()`).
+## Removed 1 row containing non-finite outside the scale range
+## (`stat_density2d_filled()`).
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Removed 2 rows containing non-finite outside the scale range
+## (`stat_density2d_filled()`).
+\end{verbatim}
+
+\includegraphics{Judge-Notebook_files/figure-latex/unnamed-chunk-2-1.pdf}
+
+While these figures indicate that Judge faced the highest proportion of
+his pitches as fastballs, I find it very interesting that sliders
+comprised 20\% of the pitches he saw, with other pitches frequently
+seeing the bottom of the zone as is evident through the heatmaps.
+According to Savant data,
+\href{https://baseballsavant.mlb.com/savant-player/aaron-judge-592450?stats=statcast-r-hitting-mlb}{Judge
+saw 26.8\% four-seamers and 17.9\% sliders in the regular season} - this
+shift indicates potentially a slight change in the approach pitchers
+carried towards attacking Judge at the lower part of the zone as opposed
+to trying to get him to swing and miss at fastballs up in the zone. The
+curveball (Curve and Knucle Curve here) had a combined percenage of
+around
+\href{https://baseballsavant.mlb.com/savant-player/aaron-judge-592450?stats=statcast-r-hitting-mlb}{7\%
+in the regular season}, and the postseason saw this figure jump to 10\%,
+noting that the pitch mix and location focus altered in the postseason.
+Overall, it is evident through these heatmaps that pitchers focused on
+pitching to Judge low in the zone with a myriad of pitch offerings.
+
+I wanted to further compare these figures with Judge's hits in the
+postseason to see if there was a noticeable difference between the
+pitches he saw and the pitches that he was able to get hits on.
+
+\includegraphics{Judge-Notebook_files/figure-latex/unnamed-chunk-3-1.pdf}
+
+From this plot, it is very clear that Judge's hits were in the middle
+third of the zone. As seen with the hit plots, pitchers mitigated this
+by throwing to him low and many times away to mitigate the potential for
+hard contact, of which Judge is obviously capable.
+
+As Judge faced numerous pitchers in the playoffs, I was interested in
+further seeing which pitchers fared the best against Judge and how they
+performed with certain pitches. I did so by examining all of the
+pitchers he faced in the postseason, as well as creating statistics
+based on each pitch and pitcher for the individual pitch performances in
+terms of inducing whiffs (noted as ``swinging strikes'' in the Savant
+dataset - this may lead to different calculations compared to other
+industry sources). I additionally included counting statistics
+(strikeouts, hits, batting average) as a supplement.
+
+\begin{verbatim}
+## # A tibble: 22 x 8
+##    Name           total_pitches whiffs whiff_percentage mean_ev strikeouts  hits
+##    <chr>                  <int>  <int>            <dbl>   <dbl>      <int> <int>
+##  1 Brusdar Grate~            12      1             8.33    82.8          0     1
+##  2 Anthony Banda              5      0             0      NaN            0     0
+##  3 Michael Kopech             2      0             0      101.           0     0
+##  4 Landon Knack               8      0             0       88.7          0     0
+##  5 Brent Honeywe~             3      0             0      108.           0     1
+##  6 Ryan Brasier               6      2            33.3    NaN            0     0
+##  7 Yoshinobu Yam~            17      5            29.4     79.9          2     0
+##  8 Tanner Bibee              15      4            26.7     93.5          1     0
+##  9 Hunter Gaddis             17      5            29.4     81.7          2     1
+## 10 Emmanuel Clase             8      1            12.5    103.           0     1
+## # i 12 more rows
+## # i 1 more variable: batting_avg <dbl>
+\end{verbatim}
+
+\begin{verbatim}
+## # A tibble: 69 x 9
+##    Name      pitch_type total_pitches whiffs whiff_percentage mean_ev strikeouts
+##    <chr>     <chr>              <int>  <int>            <dbl>   <dbl>      <int>
+##  1 Brusdar ~ SI                    10      1               10    82.8          0
+##  2 Anthony ~ SL                     4      0                0   NaN            0
+##  3 Anthony ~ SI                     1      0                0   NaN            0
+##  4 Michael ~ FF                     1      0                0   101.           0
+##  5 Brusdar ~ SL                     2      0                0   NaN            0
+##  6 Michael ~ FC                     1      0                0   NaN            0
+##  7 Landon K~ CU                     4      0                0    92.6          0
+##  8 Landon K~ FF                     3      0                0   NaN            0
+##  9 Brent Ho~ SL                     2      0                0   108.           0
+## 10 Brent Ho~ FF                     1      0                0   NaN            0
+## # i 59 more rows
+## # i 2 more variables: hits <int>, batting_avg <dbl>
+\end{verbatim}
+
+From these numbers it is clear that \ldots{}
+
+I selected four pitchers out of this selection that I believed to be
+strong performers against Judge based on the metrics: Yoshinobu Yamamoto
+(17 pitch sample, nearly 30\% whiff rate and low average EV (79.9 MPH)
+with 2 Ks, strong performing slider (50\% whiff)), Michael Wacha (18
+pitch sample, only 22.22\% whiff but low 74.53 average EV, 1 K, strong
+performing Sinker (40\% whiff)), Tanner Bibee (15 pitch sample, 26.67\%
+whiff with elevated average EV (93.5 MPH) but strong performing cutter
+(40\% whiff) and 1 K), and Angel Zerpa (14 pitch sample, no whiff
+percentage but lower 79.03 MPH average EV, 0 hits allowed).
+
+I wanted to examine their performance against Judge individually. Below
+are plots for each pitcher and their performance against Judge,
+separated out to demonstrate EVs and and whiffs.
+
+\includegraphics{Judge-Notebook_files/figure-latex/unnamed-chunk-5-1.pdf}
+
+\begin{verbatim}
+## Warning: Removed 1 row containing missing values or values outside the scale range
+## (`geom_point()`).
+## Removed 1 row containing missing values or values outside the scale range
+## (`geom_point()`).
+\end{verbatim}
+
+\includegraphics{Judge-Notebook_files/figure-latex/unnamed-chunk-5-2.pdf}
+
+\begin{verbatim}
+## Warning: Removed 1 row containing missing values or values outside the scale range
+## (`geom_point()`).
+## Removed 1 row containing missing values or values outside the scale range
+## (`geom_point()`).
+\end{verbatim}
+
+\includegraphics{Judge-Notebook_files/figure-latex/unnamed-chunk-5-3.pdf}
+\includegraphics{Judge-Notebook_files/figure-latex/unnamed-chunk-5-4.pdf}
+
+Yamamoto: Stayed low and away for the most part, and this worked - he
+allowed some contact low in the zone, but otherwise was successful in
+inducing whiffs in the lower part of the zone, especially with 2
+sliders. He seemed to not challenge Judge near the top of the zone.
+
+Wacha: Sat a little higher in the zone compared to Yamamoto, though away
+from the middle for the most part to avoid hard contact. Wacha worked
+inside on Judge primarily, a unique approach, though again saw whiffs at
+the lower part of the zone with the changeup. Kept the sinker out of the
+zone completely, and saw 2 whiffs.
+
+Bibee: Was more similar to Yamamoto, though caught more of the zone
+consistently, evident by the three balls put in play that were all in
+the middle zone or very close. Otherwise, the theme of low and away was
+consistent, as he induced whiffs on three pitches (1 curve, 2 cutter)
+away from Judge. Challenged Judge above the middle of the zone even less
+than Yamamoto. 1 sinker inside for a whiff is consistent with Wacha -
+also consistent with the theme of sitting low.
+
+Zerpa: Contact on his sinkers that were in the middle of the zone. Zerpa
+being the only lefty of the group provides an interesting tilt to the
+data - Judge seemed less keen on swinging at sliders coming in on him
+compared to before with a pitcher like Yamamoto where it was away from
+him. Zerpa did not allow any hits, but he also walked Judge twice -
+though this is a small sample, it is clear that Zerpa was essentially
+pitching around Judge as much as possible.
+
+The first three pitchers saw success from staying low in the zone. For
+the most part, all of the pitchers avoided the middle of the zone, with
+Zerpa essentially pitching around Judge with his non-competitive sinkers
+high and away. It is clear that Judge struggled most low and low-away,
+especially with off-speed pitches. Yamamoto and Bibee were the best at
+targeting this weakness.
+
+I wanted to reinforced my view that the middle of the zone was a common
+area of avoidance for pitchers. This should naturally be the case for
+anyone facing Judge logically, though I wanted to examine Judge's
+regular season home runs to view where in the zone he saw these pitches.
+
+\includegraphics{Judge-Notebook_files/figure-latex/unnamed-chunk-6-1.pdf}
+
+This plot aligns with what is seen with Judge's postseason hits chart.
+It is clear he excels in the middle third of the zone (naturally), and
+as seen with the four pitchers, it is clear that most of his contact
+came from this area - those pitchers excelled since they kept the ball
+away from this zone frequently.
+
+To tie these visualizations together, I wanted to examine Judge's
+regular season and postseason whiff tendencies in plots and statistics.
+Through plots, I was able to discern the pitches that Judge swung and
+missed on through a strike zone plot, the heatmap of his swing and
+misses, and an estimate of the swing and miss percentages for judge
+based on the filtered data acquired through Statcast (may be varied
+compared to other source estimates).
+
+\begin{verbatim}
+## Warning: There was 1 warning in `mutate()`.
+## i In argument: `whiff = ifelse(...)`.
+## Caused by warning in `description == c("swinging_strike", "swinging_strike_blocked")`:
+## ! longer object length is not a multiple of shorter object length
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Removed 44 rows containing missing values or values outside the scale range
+## (`geom_point()`).
+\end{verbatim}
+
+\includegraphics{Judge-Notebook_files/figure-latex/unnamed-chunk-7-1.pdf}
+
+\begin{verbatim}
+## Warning: Removed 1 row containing non-finite outside the scale range
+## (`stat_density2d_filled()`).
+\end{verbatim}
+
+\includegraphics{Judge-Notebook_files/figure-latex/unnamed-chunk-7-2.pdf}
+
+\begin{verbatim}
+##          n
+## 1 5.892548
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: There was 1 warning in `mutate()`.
+## i In argument: `whiff = ifelse(...)`.
+## Caused by warning in `description == c("swinging_strike", "swinging_strike_blocked")`:
+## ! longer object length is not a multiple of shorter object length
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Removed 5 rows containing missing values or values outside the scale range
+## (`geom_point()`).
+\end{verbatim}
+
+\includegraphics{Judge-Notebook_files/figure-latex/unnamed-chunk-8-1.pdf}
+\includegraphics{Judge-Notebook_files/figure-latex/unnamed-chunk-8-2.pdf}
+
+\begin{verbatim}
+##          n
+## 1 12.08791
+\end{verbatim}
+
+From these plots, it is evident that Aaron Judge's whiff tendencies were
+slightly altered across the regular season and post-season. It is clear
+from the plots themselves that Judge tended to see more low pitches for
+whiffs in the post-season, signaling a high percentage of sliders and
+off-speed pitches compared to the regular season (which we saw early
+with the 20\% slider percentage that we saw) \textbf{DO I NEED TO
+EXAMINE THE PERCENTS FOR THE REG SEASON TO COMPARE?}. It is thus clear
+that among the pitchers examined, they were very successful with low
+pitches to get Judge to whiff, especially sliders, curveballs, and
+chanegups. Further, the data itself presented here indicates that
+Judge's whiff rate was up altogether in the playoffs. From the
+calculations here, it appears that Judge's swinging strike percentage
+went from 5.89\% in the regular season to 12.09\% in the postseason.
+While this data is subject to variability based on available data, it
+appears that the general trend of Aaron Judge whiffing more in the
+postseason has validity.
+
+\section{Conclusions}\label{conclusions}
+
+Through this exploration, it is evident that Aaron Judge had
+uncharacteristic difficulties throughout the post-season. As he saw a
+\textasciitilde2.1\%increase in sliders into the post season and a
+\textasciitilde5.8\% decrease in fastballs with a shift to more low
+pitches, where he was unable to adjust and saw an elevated whiff
+percentage in the post-season. Pitchers that were especially successful
+against him included Yoshinobu Yamamoto, Michael Wacha, and Tanner Bibee
+(with Angel Zerpa essentially pitching around him), where the first
+three executed well to keep the ball away from the middle third of the
+zone as much as possible, where most of Judge's hard contact in the
+regular season came from.
+
+While not many conclusive theories can be drawn from this examination,
+it is clear that Judge struggled in the playoffs, and the information
+presented indicates that it likely is attributable to both changed
+pitcher approach (low and away, sliders, etc.) but also his personal
+mentality and approach at the plate, which are harder to quantify. Going
+off of this, an interesting area for continued analysis would be to
+examine pitches Judge saw by count and with different numbers of runners
+on base, which could account a little more for his approach. With this,
+an examination of his hitting tendencies in high leverage versus low
+leverage situations, both in the regular season and playoffs, could give
+insight into understanding his performance discrepancies.
+
+\section{Additional}\label{additional}
+
+The final area of examination that I wanted to include is a look at
+Aaron Judge's chase rates from the regular season and post-season. In
+the regular season, Aaron Judge was one of the most disciplined hitters,
+sporting an
+\href{https://www.mlb.com/news/aaron-judge-yankees-scuffle-2024-world-series}{18.7\%
+chase rate} (2nd lowest in American League). In the postseason, his
+chase rate rose to an astonishing
+\href{https://www.mlb.com/news/aaron-judge-yankees-scuffle-2024-world-series}{28.7\%},
+only to increase further in the World Series. This is very evident
+through the visualizations made in this project - Judge has been
+susceptible to swinging and missing often, pushing pitchers to throw the
+dangerous hitter further outside of the zone. Here, I will add a last
+comparison of Judge's regular season vs.~post-season pitches chase rates
+visualized - the pitches that he swung at that landed outside of the
+zone (zone being based on the defined zone here).
+
+\begin{verbatim}
+## Warning: There was 1 warning in `mutate()`.
+## i In argument: `swung = ifelse(...)`.
+## Caused by warning in `description == c("swinging_strike", "foul", "foul_tip", "hit_into_play")`:
+## ! longer object length is not a multiple of shorter object length
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Removed 41 rows containing missing values or values outside the scale range
+## (`geom_point()`).
+\end{verbatim}
+
+\includegraphics{Judge-Notebook_files/figure-latex/unnamed-chunk-9-1.pdf}
+
+\begin{verbatim}
+##          n
+## 1 57.78163
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: There was 1 warning in `mutate()`.
+## i In argument: `swung = ifelse(...)`.
+## Caused by warning in `description == c("swinging_strike", "foul", "foul_tip", "hit_into_play")`:
+## ! longer object length is not a multiple of shorter object length
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Removed 5 rows containing missing values or values outside the scale range
+## (`geom_point()`).
+\end{verbatim}
+
+\includegraphics{Judge-Notebook_files/figure-latex/unnamed-chunk-10-1.pdf}
+
+\begin{verbatim}
+##          n
+## 1 57.50916
+\end{verbatim}
+
+It is hard to discern much from these plots and data, though we know
+that Judge chased more pitches in the playoffs. Through more refined
+data and more precise visualizations, this may be an area to explore
+further as to the different pitch chasing tendencies that varied
+throughout the playoffs compared to the regular season.
+
+\end{document}
